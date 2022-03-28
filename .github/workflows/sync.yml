@@ -17,7 +17,7 @@ jobs:
         run: |
           curl -sfL https://raw.githubusercontent.com/lokalise/lokalise-cli-2-go/master/install.sh | sh
 
-      - name: Run a multi-line script
+      - name: Download Locale Files
         env:
           LOKALISE_PROJECT: ${{ secrets.GITHUB_TOKEN }}
           LOKALISE_TOKEN: ${{ secrets.LOKALISE_TOKEN }}
@@ -29,3 +29,10 @@ jobs:
             --format json \
             --export-sort a_z \
             --unzip-to ./
+            
+      - name: Commit Locale Files
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: main
+          commit_message: 'docs: update locale files'
+          file_pattern: '*.json'
