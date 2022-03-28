@@ -22,7 +22,7 @@ jobs:
           LOKALISE_PROJECT: ${{ secrets.GITHUB_TOKEN }}
           LOKALISE_TOKEN: ${{ secrets.LOKALISE_TOKEN }}
         run: |
-          lokalise2 \
+          ./bin/lokalise2 \
             --token $LOKALISE_TOKEN \
             --project-id $LOKALISE_PROJECT \
             file download \
