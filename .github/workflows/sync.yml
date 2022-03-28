@@ -19,7 +19,7 @@ jobs:
 
       - name: Download Locale Files
         env:
-          LOKALISE_PROJECT: ${{ secrets.GITHUB_TOKEN }}
+          LOKALISE_PROJECT: ${{ secrets.LOKALISE_PROJECT }}
           LOKALISE_TOKEN: ${{ secrets.LOKALISE_TOKEN }}
         run: |
           ./bin/lokalise2 \
